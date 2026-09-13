@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MPC2000 Custom OS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.min.css">
+</head>
+<body>
+
+<header class="hero">
+  <p class="site-tag">DMPC2000 / MPC2000 v1.72 firmware mods</p>
+
+  <div class="hero-img-wrap">
+    <img
+      src="assets/dmpc.webp"
+      alt="Akai MPC2000 Classic"
+      onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+    >
+    <div class="hero-placeholder" style="display:none;">
+      <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="4" y="16" width="72" height="48" rx="2" stroke="#C8A96E" stroke-width="1.5"/>
+        <rect x="12" y="28" width="10" height="10" rx="1" fill="#C8A96E" opacity="0.4"/>
+        <rect x="26" y="28" width="10" height="10" rx="1" fill="#C8A96E" opacity="0.4"/>
+        <rect x="40" y="28" width="10" height="10" rx="1" fill="#C8A96E" opacity="0.4"/>
+        <rect x="54" y="28" width="10" height="10" rx="1" fill="#C8A96E" opacity="0.4"/>
+        <rect x="12" y="42" width="10" height="10" rx="1" fill="#C8A96E" opacity="0.25"/>
+        <rect x="26" y="42" width="10" height="10" rx="1" fill="#C8A96E" opacity="0.25"/>
+        <rect x="40" y="42" width="10" height="10" rx="1" fill="#C8A96E" opacity="0.25"/>
+        <rect x="54" y="42" width="10" height="10" rx="1" fill="#C8A96E" opacity="0.25"/>
+      </svg>
+    </div>
+  </div>
+
+  <h1 class="hero-title">DMPC2000<br><span>Custom MPC2000 Classic OS</span></h1>
+  <p class="hero-sub">An unofficial firmware build for the Akai MPC2000 Classic. Extended features, and workflow improvements. Say no to closed source, and say no to gatekeeping losers. Not affiliated with Akai Professional.</p>
+  <p class="hero-sub">Songs saved with modified OS features might not load properly on stock 1.72 OS so keep this in mind.</p>
+  <p class="hero-sub">I've been a software developer for over a decade. These updates are a result of reverse engineering the stock OS and modifying it to my liking.
+    I have my own unit testing workflows, patch creation workflows, and a suite of reverse engieering tools to make this a possibility.
+    If you have any questions, or feature requests, or bugs, please contact me at <a href="mailto:imaginationdriver@gmail.com">imaginationdriver@gmail.com</a>
+  </p>
+</header>
+
+<section class="section" id="download">
+  <p class="section-label">releases</p>
+  <h2>Download</h2>
+
+  <table class="download-table">
+    <thead>
+      <tr>
+        <th>Version</th>
+        <th>Date</th>
+        <th>Notes</th>
+        <th style="text-align:right;">File</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <span class="v-tag latest">v1.0.2</span>
+        </td>
+        <td><span class="v-date">2026-09-13</span></td>
+        <td><span class="v-notes">Mute groups added</span></td>
+        <td><a href="assets\versions\DMPC2000_v102.zip" class="dl-btn" download>download zip</a></td>
+      </tr>
+      <tr>
+        <td><span class="v-tag">v1.0.1</span></td>
+        <td><span class="v-date">2026-09-10</span></td>
+        <td><span class="v-notes">Pitch tuning increased by +-12 semitones</span></td>
+        <td><a href="assets\versions\DMPC2000_v101.zip" class="dl-btn secondary" download>download zip</a></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="install-note">
+    Copy the <code>MPC2000.EXE</code> and the <code>MPC2000.SYS</code> file to floppy disk. Use a USB to Floppy Drive to copy from your computer.
+  </div>
+</section>
+
+<div class="blog-header">
+  <p class="section-label">devlog</p>
+  <h2>Build Notes</h2>
+</div>
+
+<article class="post">
+  <div class="post-meta">
+    <span class="post-date">2026-09-13</span>
+    <span class="post-title">Mute groups finally</span>
+    <span class="post-tag">feature</span>
+  </div>
+  <p>Long-awaited feature for the MPC2000 Classic: mute groups.
+
+    The ability to quickly assign pads to one of 32 different mute groups, with each pad in the group cutting off the other pads assigned to the same group.
+    
+    Simply go to the Program menu and select Mode: Mute. Then cursor over to the ID and select the group you want to assign the pad to.</p>
+  <ul>
+    <li>32 different mute groups available</li>
+    <li>each pad can be assigned to one of the 32 groups through the program menu mode option</li>
+  </ul>
+</article>
+
+<article class="post">
+  <div class="post-meta">
+    <span class="post-date">2026-09-10</span>
+    <span class="post-title">Increased pitch clamp +- one octave</span>
+    <span class="post-tag">feature</span>
+  </div>
+  <p>For years, my workflow has been to sample at 45 +8 RPM from the tech 12 turntable into the MP, pitch it up another half octave, then resample it into the S950. From there, I sample it back into the MPC2000 and slow it back down to get that 12-bit-style aliased, ringing sound you hear from older machines.
+
+    My issue was always running out of headroom with the MPC2000's -24 semitone limit. In theory, I could go much lower, which would let me save even more space on my floppies while increasing the aliasing from the pitch-down process.
+    
+    Now you can do this directly with the DMPC2000 OS without needing to link multiple machines together. Prepare your samples accordingly by saving them pitched up higher than you normally would, and you can pitch shift below -24 semitones, all the way down to -36 semitones (-360).
+    
+    The sound is very distorted, but in that classic drum machine way we're used to hearing from SPs and older rackmount units.</p>
+  <ul>
+    <li>Pitch clamp increased by +-12 semitones</li>
+  </ul>
+</article>
+
+<article class="post">
+  <div class="post-meta">
+    <span class="post-date">2026-09-07</span>
+    <span class="post-title">High pass filter through stock OS?</span>
+    <span class="post-tag">release</span>
+  </div>
+  <p>Rip the bandaid off, this is not possible. I initially started this project because I wanted to add a high pass filter to the stock OS.
+    My thought was that it was simply some maths being sent off to a generic filter chip, so in theory I could just flip the polarity.
+    This is not the case, the OS simply sends off params to a LPF filter chip to put it lightly.
+    Those params <strong>are</strong> adjustable but I don't want to get into the mud here because it would only effect the LPF. If you want that HPF for your unit
+    you need to buy the EB16.
+  </p>
+</article>
+
+<footer>
+  <span>DMPC2000 Custom OS — no affiliation with Akai Professional</span>
+  <span><a href="https://github.com/dmac780" target="_blank">github</a></span>
+</footer>
+
+</body>
+</html>
