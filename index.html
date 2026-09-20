@@ -39,7 +39,7 @@
   <p class="hero-sub">Songs saved with modified OS features might not load properly on stock 1.72 OS so keep this in mind.</p>
   <p class="hero-sub">I've been a software developer for over a decade. These updates are a result of reverse engineering the stock OS and modifying it to my liking.
     I have my own unit testing workflows, patch creation workflows, and a suite of reverse engieering tools to make this a possibility.
-    If you have any questions, or feature requests, or bugs, please contact me at <a href="mailto:imaginationdriver@gmail.com">imaginationdriver@gmail.com</a>
+    If you have any questions, feature requests, or bugs, please contact me at <a href="mailto:imaginationdriver@gmail.com">imaginationdriver@gmail.com</a>
   </p>
 </header>
 
@@ -59,16 +59,24 @@
     <tbody>
       <tr>
         <td>
-          <span class="v-tag latest">v1.0.2</span>
+          <span class="v-tag latest">v1.0.4</span>
+        </td>
+        <td><span class="v-date">2026-09-19</span></td>
+        <td><span class="v-notes">Resample page, pitch resampling (1–4 octaves, PCM rewrite), pitch range ±480, APS/all-programs load no longer dumps or freezes when opening RESAMP</span></td>
+        <td><a href="assets\versions\DMPC2000_v104.zip" class="dl-btn" download>download zip</a></td>
+      </tr>
+      <tr>
+        <td>
+          <span class="v-tag">v1.0.2</span>
         </td>
         <td><span class="v-date">2026-09-13</span></td>
         <td><span class="v-notes">Mute groups added</span></td>
-        <td><a href="assets\versions\DMPC2000_v102.zip" class="dl-btn" download>download zip</a></td>
+        <td><a href="assets\versions\DMPC2000_v102.zip" class="dl-btn secondary" download>download zip</a></td>
       </tr>
       <tr>
         <td><span class="v-tag">v1.0.1</span></td>
         <td><span class="v-date">2026-09-10</span></td>
-        <td><span class="v-notes">Pitch tuning increased by +-12 semitones</span></td>
+        <td><span class="v-notes">Pitch tuning increased by ±12 semitones (±360)</span></td>
         <td><a href="assets\versions\DMPC2000_v101.zip" class="dl-btn secondary" download>download zip</a></td>
       </tr>
     </tbody>
@@ -83,6 +91,36 @@
   <p class="section-label">devlog</p>
   <h2>Build Notes</h2>
 </div>
+
+<article class="post">
+  <div class="post-meta">
+    <span class="post-date">2026-09-19</span>
+    <span class="post-title">Resample Suite in the MPC 2k Classic</span>
+    <span class="post-tag">feature</span>
+  </div>
+  <p>There is now a resample suite built directly into the MPC 2000 Classic. This feature is highly experimental and still a work in progress.</p>
+
+  <p>You can access it through the TRIM menu: <strong>TRIM -> Params -> Resamp</strong>. From there, you can select how many octaves you want to speed the sample up before resampling and copying it back into memory:
+    
+    1 (-120)
+    2 (-240)
+    3 (-360)
+    4 (-480)</p>
+    
+    <p>The main reason I wanted to get this working is the insane aliasing the MPC 2000 produces when pitching below -24 semitones. Buzzy basslines. Cosmic stardust-filled strings. Thick, warm, punchy drums ect. Instead of having to leave the MPC, pitch something up, resample it externally, and bring it back in, you can now do the whole process in the box. Sample something straight from vinyl and keep processing it in the MP.</p>
+    
+    <p>This is going to eventually become a proper resampling suite with more options like downsampling similar to the MPC 2000XL.</p>
+    
+    <p>There are some limitations right now. MPC 2000 playback and memory storage weren't really designed for anything beyond roughly +/-24 semitones, so going further can produce some weird behavior with longer resamples due to the way the MPC hardware and RAM handle playback. The faster you resample a sample, the more of the tail end can slightly disappear. Mathematically, this shouldn't really make sense, but something in the architecture of the MPC itself is causing it.</p>
+    
+    <p>I'm currently investigating exactly what's happening there. It's relatively harmless for now, but <strong>if you run into the issue, just give your samples a little more length before resampling them, then trim accordingly.</strong></p>
+  </p>
+    <ul>
+    <li>Resample Page added under TRIM->Params F5 softkey option</li>
+    <li>Pitch Resampling functionality added</li>
+    <li>Pitch tuning increased to ±480 to compensate for the resampling process</li>
+  </ul>
+</article>
 
 <article class="post">
   <div class="post-meta">
@@ -115,7 +153,7 @@
     
     The sound is very distorted, but in that classic drum machine way we're used to hearing from SPs and older rackmount units.</p>
   <ul>
-    <li>Pitch clamp increased by +-12 semitones</li>
+    <li>Pitch range increased by ±12 semitones (±360)</li>
   </ul>
 </article>
 

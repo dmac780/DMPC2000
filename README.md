@@ -8,12 +8,13 @@ Still testing and finding bugs, but these features are working on my machine and
 New features are going to be added overtime. Will be investigating bitcrushing capabilities/resampling, and other workflow quality of life things in the near future.
 
 
-> **Compatibility:** Songs saved with modified OS features will not load properly on stock 1.72. Keep that in mind before switching.
+> **Compatibility:** Songs saved with modified OS features may not load properly on stock 1.72. Keep that in mind before switching.
 
 ## Features
 
 | Version | Date | Notes |
 |---------|------|-------|
+| **v1.0.4** | 2026-09-19 | Resample page, pitch resampling functionality, pitch range ±480, Bug fixes |
 | **v1.0.2** | 2026-09-13 | Mute groups (32 groups; assign pads via Program menu → Mode: Mute) |
 | **v1.0.1** | 2026-09-10 | Pitch clamp increased by ±12 semitones ( down to −36 / up to +36 ) |
 
@@ -21,7 +22,8 @@ New features are going to be added overtime. Will be investigating bitcrushing c
 
 Release zips live in [`assets/versions/`](assets/versions/):
 
-- [DMPC2000_v102.zip](assets/versions/DMPC2000_v102.zip) — latest
+- [DMPC2000_v104.zip](assets/versions/DMPC2000_v104.zip) — latest
+- [DMPC2000_v102.zip](assets/versions/DMPC2000_v102.zip)
 - [DMPC2000_v101.zip](assets/versions/DMPC2000_v101.zip)
 
 ## Install
